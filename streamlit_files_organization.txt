@@ -1,0 +1,32 @@
+project/
+├── README.md                         # Project overview and setup instructions
+├── CLAUDE.md                         # Instructions for Claude across the project
+├── streamlit_files/
+│   ├── app.py                         # Streamlit entry point and page layout
+│   ├── pyproject.toml                 # Python project configuration
+│   ├── requirements.txt               # Exported dependency list
+│   ├── Streamlit_Build_Spec.md        # Move into docs/ if you want docs grouped
+│   ├── data/
+│   │   └── cleaned/                   # Canonical Parquet files used by the app
+│   │       ├── prices.parquet
+│   │       ├── news.parquet
+│   │       ├── filings.parquet
+│   │       └── price_context.parquet
+│   └── src/
+│       └── dso576_python/
+│           ├── __init__.py
+│           ├── analysis.py            # Dashboard calculations and context lookups
+│           ├── charts.py              # Plotly chart builders
+│           ├── constants.py           # Shared ticker and period definitions
+│           └── data_loader.py         # Load and validate cleaned data
+│
+├── cleaning_files/
+│   ├── cleaning.py                    # Build cleaned Parquet data from raw data
+│   └── export_analysis.py              # Validate and export analysis reports
+│
+└── docs/                               # Optional documentation home
+    └── Streamlit_Build_Spec.md
+
+This is a responsibility map, not a set of changes. The main path to preserve is
+app.py -> src/dso576_python/ and data/cleaned/; if you move either source code or
+data, update the app's imports or paths accordingly.
